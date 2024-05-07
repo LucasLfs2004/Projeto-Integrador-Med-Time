@@ -4,7 +4,7 @@ import Content from './routes';
 
 function App() {
   return (
-    <div className="app">
+    <div className="App">
       <BrowserRouter>
         <Content/>
       </BrowserRouter>
