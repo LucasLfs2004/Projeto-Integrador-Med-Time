@@ -12,7 +12,7 @@ const Home = () => {
   });
 
   return (
-    <main className='w-[100vw] h-[100vh]'>
+    <main className='container w-[100vw] h-[100vh]'>
       <Header />
       <TabBar page={'home'} />
     </main>

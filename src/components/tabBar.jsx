@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export const TabBar = ({ page }) => {
   return (
-    <section className='flex flex-row items-center justify-between bg-[#0F2737] h-[70px] w-full fixed bottom-0 px-[36px]'>
+    <section className='flex flex-row items-center justify-between bg-[#0F2737] h-[70px] w-[100vw] fixed bottom-0 px-[36px]'>
       <Link to={'/'}>
         <svg
           width='34'
