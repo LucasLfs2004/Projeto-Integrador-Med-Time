@@ -1,13 +1,20 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const Header = () => {
   const [menuVisible, setMenuVisible] = useState(false);
+  const [userData, setUserData] = useState();
+  const navigate = useNavigate();
 
-  const userData = JSON.parse(localStorage.getItem('data_user'));
+  useEffect(() => {
+    console.log('useEffect acionado');
+    const data = JSON.parse(localStorage.getItem('data_user'));
+    console.log(data);
+    setUserData(JSON.parse(localStorage.getItem('data_user')));
+  }, [localStorage]);
 
   return (
-    <header className='flex flex-row bg-[#0F2737] h-[60px] w-full justify-between items-center'>
+    <header className='flex flex-row bg-[#0F2737] h-[60px] w-full justify-between items-center '>
       <div className='w-[80px]'>
         <p className='text-[14px] text-[#FBA725] font-medium'>Med Time</p>
       </div>
@@ -30,25 +37,44 @@ export const Header = () => {
             <img src='/assets/userIcon.png' alt='' />
           </div>
           <p>
-            {userData.name} <br />
-            {userData.age} anos
+            {userData?.name}
+            {/* <br /> */}
+            {/* {userData?.age} anos */}
           </p>
         </div>
         <div className='flex flex-col'>
-          <Link className='border-t-[1px] border-[#FFF8EB] bg-[#193750]  pl-[24px] leading-[59px]'>
-            Alterar dados
-          </Link>
-          <Link className='border-t-[1px] border-[#FFF8EB] bg-[#193750]  pl-[24px] leading-[59px]'>
+          {/* <Link
+            to={'/welcome'}
+            className='border-t-[1px] border-[#FFF8EB] bg-[#193750]  pl-[24px] leading-[59px]'
+          >
+            {userData?.name ? 'Alterar dados' : 'Fazer login'}
+          </Link> */}
+          <Link
+            to={'/reminders'}
+            className='border-t-[1px] border-[#FFF8EB] bg-[#193750]  pl-[24px] leading-[59px]'
+          >
             Lembretes
           </Link>
-          <Link className='border-t-[1px] border-[#FFF8EB] bg-[#193750]  pl-[24px] leading-[59px]'>
+          <Link
+            to={'/add-reminder'}
+            className='border-t-[1px] border-[#FFF8EB] bg-[#193750]  pl-[24px] leading-[59px]'
+          >
             Novo lembrete
           </Link>
-          <Link className='border-t-[1px] border-[#FFF8EB] bg-[#193750]  pl-[24px] leading-[59px]'>
+          <Link
+            to={'/history'}
+            className='border-t-[1px] border-[#FFF8EB] bg-[#193750]  pl-[24px] leading-[59px]'
+          >
             Histórico
           </Link>
         </div>
-        <button className='bg-[#FFF8EB] text-[18px] font-regular text-[#0F2737] w-[44%] mt-[240px] ml-[28%] rounded-md'>
+        <button
+          onClick={() => {
+            localStorage.removeItem('data_user');
+            navigate('/welcome');
+          }}
+          className='bg-[#FFF8EB] text-[18px] font-regular text-[#0F2737] w-[44%] mt-[240px] ml-[28%] rounded-md'
+        >
           Finalizar Sessão
         </button>
       </section>
