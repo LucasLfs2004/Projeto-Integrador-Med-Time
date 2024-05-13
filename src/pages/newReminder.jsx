@@ -1,11 +1,12 @@
 import { Header } from '../components/header';
+import Slide from '../components/slide';
 import { TabBar } from '../components/tabBar';
 
 const NewReminder = () => {
   return (
     <main>
       <Header />
-      <h1>Tela de lembretes ativos</h1>
+      <Slide />
       <TabBar page={'new-reminder'} />
     </main>
   );
