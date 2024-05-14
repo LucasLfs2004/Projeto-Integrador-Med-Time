@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const AddConsulta = () => {
   const [hospital, setHospital] = useState('');
@@ -44,6 +44,8 @@ const AddConsulta = () => {
       data,
       horario,
       localidade,
+      tipo: 'consulta',
+      active: true,
     };
 
     // Adicionando novo lembrete à lista de consultas
@@ -66,7 +68,7 @@ const AddConsulta = () => {
 
   return (
     <div className='bg-[#FFF8EB]'>
-      <h1 className='flex justify-start text-2xl font-medium mt-8 mb-4 ml-4'>
+      <h1 className='flex justify-start text-2xl font-medium mt-8 mb-4 ml-4 text-[#0F2737]'>
         Adicionar lembrete
       </h1>
       <div className='mb-4 flex flex-col items-center'>
@@ -75,7 +77,7 @@ const AddConsulta = () => {
           alt='Consulta'
           className='mb-2 w-[8rem]'
         />
-        <h1 className='font-medium'>Consulta Médica</h1>
+        <h1 className='font-medium text-[#0F2737]'>Consulta Médica</h1>
       </div>
       <div className='flex flex-col m-[2rem]'>
         <h1 className='flex justify-start text-sm ml-2'>Hospital:</h1>

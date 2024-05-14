@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const AddAgendamento = () => {
   const [especialidade, setEspecialidade] = useState('');
@@ -26,6 +26,8 @@ const AddAgendamento = () => {
     const novoLembreteAgendamento = {
       especialidade,
       urgencia,
+      tipo: 'agendamento',
+      active: true,
     };
 
     // Adicionando novo lembrete à lista de agendamentos
@@ -48,7 +50,7 @@ const AddAgendamento = () => {
 
   return (
     <div className='bg-[#FFF8EB]'>
-      <h1 className='flex justify-start text-2xl font-medium mt-8 mb-4 ml-4'>
+      <h1 className='flex justify-start text-2xl font-medium mt-8 mb-4 ml-4 text-[#0F2737]'>
         Adicionar lembrete
       </h1>
       <div className='mb-4 flex flex-col items-center'>
@@ -57,7 +59,7 @@ const AddAgendamento = () => {
           alt='Medicina'
           className='mb-2 w-[8rem]'
         />
-        <h1 className='font-medium'>Agendar consulta</h1>
+        <h1 className='font-medium text-[#0F2737]'>Agendar consulta</h1>
       </div>
       <div className='flex flex-col m-[2rem]'>
         <h1 className='flex justify-start text-sm ml-2'>Especialidade:</h1>

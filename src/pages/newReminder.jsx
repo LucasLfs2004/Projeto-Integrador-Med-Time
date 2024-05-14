@@ -4,7 +4,7 @@ import { TabBar } from '../components/tabBar';
 
 const NewReminder = () => {
   return (
-    <main>
+    <main className='container w-[100vw] min-h-[100vh] h-auto pb-[80px]'>
       <Header />
       <Slide />
       <TabBar page={'new-reminder'} />

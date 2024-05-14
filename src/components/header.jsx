@@ -7,9 +7,7 @@ export const Header = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log('useEffect acionado');
     const data = JSON.parse(localStorage.getItem('data_user'));
-    console.log(data);
     setUserData(JSON.parse(localStorage.getItem('data_user')));
   }, [localStorage]);
 
