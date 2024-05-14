@@ -69,6 +69,10 @@ export const Header = () => {
         <button
           onClick={() => {
             localStorage.removeItem('data_user');
+            localStorage.removeItem('lembretesMedicamento');
+            localStorage.removeItem('lembretesAgendamentos');
+            localStorage.removeItem('lembretesConsultas');
+            localStorage.removeItem('lembretesExames');
             navigate('/welcome');
           }}
           className='bg-[#FFF8EB] text-[18px] font-regular text-[#0F2737] w-[44%] mt-[240px] ml-[28%] rounded-md'

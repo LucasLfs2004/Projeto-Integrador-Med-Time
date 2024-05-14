@@ -1,5 +1,6 @@
 import moment from 'moment';
 import { useEffect, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 const AddMedicamento = () => {
   const [medicamentoNome, setMedicamentoNome] = useState('');
@@ -33,10 +34,13 @@ const AddMedicamento = () => {
       nome: medicamentoNome,
       frequencia: medicamentoFrequencia,
       duracao: medicamentoDuracao,
-      data: moment.utc(),
+      data: moment().format('YYYY-MM-DD'),
       tipo: 'medicamento',
       active: true,
+      id: uuidv4(),
     };
+
+    console.log(novoLembreteMedicamento);
 
     // Adicionando novo lembrete à lista de lembretes
     const novaListaLembretesMedicamento = [

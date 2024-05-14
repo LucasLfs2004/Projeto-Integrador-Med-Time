@@ -1,6 +1,6 @@
 const ExameCard = ({ exame }) => {
   return (
-    <div className=' border-b-[1px] border-[#FBA725] pb-[8px]'>
+    <div className='pb-[8px]'>
       <div className='flex flex-row items-center justify-between'>
         <div className='flex flex-row border-b-[1px] border-[#193750] px-[3px] items-center gap-x-[12px] pb-[3px]'>
           <img

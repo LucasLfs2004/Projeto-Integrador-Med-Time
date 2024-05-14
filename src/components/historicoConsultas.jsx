@@ -18,13 +18,29 @@ const HistoricoConsultas = ({ lembretes }) => {
           if (key < 3) {
             switch (item.tipo) {
               case 'medicamento':
-                return <MedicamentoCard key={key} medicamento={item} />;
+                return (
+                  <div className='border-b-[1px] border-[#FBA725]'>
+                    <MedicamentoCard key={key} medicamento={item} />
+                  </div>
+                );
               case 'exame':
-                return <ExameCard key={key} exame={item} />;
+                return (
+                  <div className='border-b-[1px] border-[#FBA725]'>
+                    <ExameCard key={key} exame={item} />
+                  </div>
+                );
               case 'agendamento':
-                return <AgendarConsultaCard key={key} agendamento={item} />;
+                return (
+                  <div className='border-b-[1px] border-[#FBA725]'>
+                    <AgendarConsultaCard key={key} agendamento={item} />
+                  </div>
+                );
               case 'consulta':
-                return <ConsultaCard key={key} consulta={item} />;
+                return (
+                  <div className='border-b-[1px] border-[#FBA725]'>
+                    <ConsultaCard key={key} consulta={item} />
+                  </div>
+                );
             }
           }
         })

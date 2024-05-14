@@ -1,4 +1,6 @@
+import moment from 'moment';
 import { useEffect, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 const AddAgendamento = () => {
   const [especialidade, setEspecialidade] = useState('');
@@ -28,6 +30,8 @@ const AddAgendamento = () => {
       urgencia,
       tipo: 'agendamento',
       active: true,
+      data: moment().format('YYYY-MM-DD'),
+      id: uuidv4(),
     };
 
     // Adicionando novo lembrete à lista de agendamentos

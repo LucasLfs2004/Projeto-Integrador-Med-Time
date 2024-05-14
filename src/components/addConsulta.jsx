@@ -1,4 +1,6 @@
+import moment from 'moment';
 import { useEffect, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 const AddConsulta = () => {
   const [hospital, setHospital] = useState('');
@@ -41,11 +43,13 @@ const AddConsulta = () => {
     const novoLembreteConsulta = {
       hospital,
       especialidade,
-      data,
+      data: moment().format('YYYY-MM-DD'),
+      data_consulta: data,
       horario,
       localidade,
       tipo: 'consulta',
       active: true,
+      id: uuidv4(),
     };
 
     // Adicionando novo lembrete à lista de consultas

@@ -1,6 +1,8 @@
+import moment from 'moment';
+
 const AgendarConsultaCard = ({ agendamento }) => {
   return (
-    <div className=' border-b-[1px] border-[#FBA725] pb-[8px]'>
+    <div className='pb-[8px]'>
       <div className='flex flex-row items-center justify-between'>
         <div className='flex flex-row border-b-[1px] border-[#193750] px-[3px] items-center gap-x-[12px] pb-[3px]'>
           <img
@@ -12,7 +14,9 @@ const AgendarConsultaCard = ({ agendamento }) => {
             Agendar Consulta
           </h1>
         </div>
-        <p className='text-[#193750] font-medium text-[16px]'>01/03/2024</p>
+        <p className='text-[#193750] font-medium text-[16px]'>
+          {moment(agendamento.data).format('DD/MM/YYYY')}
+        </p>
       </div>
       <div className=' w-full text-[#193750] font-medium text-[16px] flex flex-col items-start'>
         <p>Especialidade: {agendamento.especialidade} </p>

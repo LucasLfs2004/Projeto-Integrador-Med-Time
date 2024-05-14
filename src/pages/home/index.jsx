@@ -21,12 +21,13 @@ const Home = () => {
     }
   }, []);
 
-  useEffect(() => {
+  const getLembretes = () => {
     const medicamentos = JSON.parse(
       localStorage.getItem('lembretesMedicamento'),
     );
     const exames = JSON.parse(localStorage.getItem('lembretesExames'));
     const consultas = JSON.parse(localStorage.getItem('lembretesConsultas'));
+    console.log('consultas', consultas);
     const agendamentos = JSON.parse(
       localStorage.getItem('lembretesAgendamentos'),
     );
@@ -37,9 +38,13 @@ const Home = () => {
     let objetoMaisProximo = null;
     let menorDiferenca = Infinity;
 
-    consultas &&
-      consultas.length > 0 &&
-      consultas.forEach(consulta => {
+    const consultasAtivas = consultas?.filter(
+      objeto => objeto.active !== false,
+    );
+
+    consultasAtivas &&
+      consultasAtivas.length > 0 &&
+      consultasAtivas.forEach(consulta => {
         const dataObjeto = moment.utc(
           `${consulta.data}T${consulta.horario}:00Z`,
         );
@@ -50,29 +55,32 @@ const Home = () => {
           objetoMaisProximo = consulta;
         }
       });
+
     setProximaConsulta(objetoMaisProximo);
 
     const lembretesIntercalados = [];
 
     // Comprimento máximo que um dos arrays tem
     const maxLength = Math.max(
-      agendamentos?.length,
-      exames?.length,
-      consultas?.length,
-      medicamentos?.length,
+      agendamentos?.length > 0 ? agendamentos?.length : 0,
+      exames?.length ? exames?.length : 0,
+      consultas?.length ? consultas?.length : 0,
+      medicamentos?.length ? medicamentos?.length : 0,
     );
-
-    // Iterar sobre todos os índices
     for (let i = 0; i < maxLength; i++) {
       // Adiciona um item de cada array, se existir
-      if (agendamentos[i]) lembretesIntercalados.push(agendamentos[i]);
-      if (exames[i]) lembretesIntercalados.push(exames[i]);
-      if (consultas[i]) lembretesIntercalados.push(consultas[i]);
-      if (medicamentos[i]) lembretesIntercalados.push(medicamentos[i]);
+      if (agendamentos?.length > i) lembretesIntercalados.push(agendamentos[i]);
+      if (exames?.length > i) lembretesIntercalados.push(exames[i]);
+      if (consultas?.length > i) lembretesIntercalados.push(consultas[i]);
+      if (medicamentos?.length > i) lembretesIntercalados.push(medicamentos[i]);
     }
 
     setLembretes(lembretesIntercalados);
-    console.log(lembretesIntercalados);
+  };
+  console.log('proxima consulta', proximaConsulta);
+
+  useEffect(() => {
+    getLembretes();
   }, [localStorage]);
 
   return (
