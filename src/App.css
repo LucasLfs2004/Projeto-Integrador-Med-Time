@@ -25,6 +25,22 @@
   left: 0;
 }
 
+.btn-bege-drop-shadow {
+  width: 200px;
+  box-shadow: -4px -4px 8px 0 #fff, 4px 4px 8px 0 #C7C1B7;
+}
+
+@media (min-width: 1024px) {
+  .side-menu {
+    width: 300px;
+    left: 100vw;
+  }
+
+  .side-menu.show-menu {
+    left: calc(100vw - 300px);
+  }
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

@@ -5,7 +5,7 @@ import MedicamentoCard from './medicacaoCard';
 
 const HistoricoConsultas = ({ lembretes }) => {
   return (
-    <div className='flex flex-col text-[#0F2737] mt-[24px] mx-[24px] gap-y-[12px]'>
+    <div className='flex flex-col text-[#0F2737] mt-[24px] mx-[24px] gap-y-[12px] lg:w-[50%] lg:mx-[auto]'>
       <div className='flex flex-row w-full items-center justify-between'>
         <div className='text-[#0F2737] flex flex-row gap-x-[8px]'>
           <img src='/assets/historyIcon.svg' className='w-[32px]' alt='' />

@@ -53,7 +53,7 @@ const AddAgendamento = () => {
   };
 
   return (
-    <div className='bg-[#FFF8EB]'>
+    <div className='bg-[#FFF8EB] lg:w-[40%] lg:mx-[auto]'>
       <h1 className='flex justify-start text-2xl font-medium mt-8 mb-4 ml-4 text-[#0F2737]'>
         Adicionar lembrete
       </h1>

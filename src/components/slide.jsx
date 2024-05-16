@@ -1,9 +1,9 @@
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
-import AddMedicamento from './addMedicamento';
-import AddConsulta from './addConsulta';
 import AddAgendamento from './addAgendamento';
+import AddConsulta from './addConsulta';
 import AddExame from './addExame';
+import AddMedicamento from './addMedicamento';
 
 const Slide = () => {
   return (

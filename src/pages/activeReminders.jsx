@@ -153,9 +153,9 @@ const ActiveReminders = () => {
 
   console.log(lembretes);
   return (
-    <main className='container w-[100vw] min-h-[100vh] h-auto pb-[80px]'>
+    <main className='container w-[100vw] min-h-[100vh] h-auto pb-[80px] '>
       <Header />
-      <section className='mx-[16px]'>
+      <section className='mx-[16px] lg:w-[50%] lg:mx-[auto]'>
         <div className='flex flex-row items-center gap-x-[14px] mb-[24px]'>
           <img
             src='/assets/clockIcon.svg'

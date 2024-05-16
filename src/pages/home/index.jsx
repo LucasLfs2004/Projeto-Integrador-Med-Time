@@ -104,6 +104,15 @@ const Home = () => {
       {proximaConsulta && <ProximaConsulta proximaConsulta={proximaConsulta} />}
 
       <HistoricoConsultas lembretes={lembretes} />
+      <button
+        onClick={() => {
+          navigate('/reminders');
+        }}
+        className='btn-bege-drop-shadow bg-[#FFF8EB] text-[18px] font-regular text-[#0F2737] mt-[32px]
+        mb-[18px] rounded-md'
+      >
+        Ver tudo
+      </button>
       <TabBar page={'home'} />
     </main>
   );
