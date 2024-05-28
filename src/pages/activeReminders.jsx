@@ -34,7 +34,6 @@ const ActiveReminders = () => {
     const agendamentos = JSON.parse(
       localStorage.getItem('lembretesAgendamentos'),
     );
-    console.log({ medicamentos, exames, consultas, agendamentos });
 
     const lembretesIntercalados = [];
 
@@ -45,8 +44,6 @@ const ActiveReminders = () => {
       consultas?.length ? consultas?.length : 0,
       medicamentos?.length ? medicamentos?.length : 0,
     );
-
-    console.log(maxLength);
 
     for (let i = 0; i < maxLength; i++) {
       // Adiciona um item de cada array, se existir
@@ -74,8 +71,6 @@ const ActiveReminders = () => {
   useEffect(() => {
     getLembretes();
   }, []);
-
-  console.log(medicamentos);
 
   const deleteReminder = item => {
     if (item.tipo === 'medicamento') {
@@ -151,7 +146,6 @@ const ActiveReminders = () => {
     getLembretes();
   };
 
-  console.log(lembretes);
   return (
     <main className='container w-[100vw] min-h-[100vh] h-auto pb-[80px] '>
       <Header />

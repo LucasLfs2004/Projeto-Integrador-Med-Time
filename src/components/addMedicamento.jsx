@@ -40,8 +40,6 @@ const AddMedicamento = () => {
       id: uuidv4(),
     };
 
-    console.log(novoLembreteMedicamento);
-
     // Adicionando novo lembrete à lista de lembretes
     const novaListaLembretesMedicamento = [
       ...lembretesMedicamento,

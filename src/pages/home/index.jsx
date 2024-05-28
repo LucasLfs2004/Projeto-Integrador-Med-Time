@@ -27,12 +27,9 @@ const Home = () => {
     );
     const exames = JSON.parse(localStorage.getItem('lembretesExames'));
     const consultas = JSON.parse(localStorage.getItem('lembretesConsultas'));
-    console.log('consultas', consultas);
     const agendamentos = JSON.parse(
       localStorage.getItem('lembretesAgendamentos'),
     );
-
-    console.log({ medicamentos, exames, consultas, agendamentos });
 
     const dataAtual = moment.utc();
     let objetoMaisProximo = null;
@@ -77,7 +74,6 @@ const Home = () => {
 
     setLembretes(lembretesIntercalados);
   };
-  console.log('proxima consulta', proximaConsulta);
 
   useEffect(() => {
     getLembretes();

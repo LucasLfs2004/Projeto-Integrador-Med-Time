@@ -34,7 +34,6 @@ const History = () => {
     const agendamentos = JSON.parse(
       localStorage.getItem('lembretesAgendamentos'),
     );
-    console.log({ medicamentos, exames, consultas, agendamentos });
 
     const lembretesIntercalados = [];
 
@@ -45,8 +44,6 @@ const History = () => {
       consultas?.length ? consultas?.length : 0,
       medicamentos?.length ? medicamentos?.length : 0,
     );
-
-    console.log(maxLength);
 
     for (let i = 0; i < maxLength; i++) {
       // Adiciona um item de cada array, se existir
@@ -74,8 +71,6 @@ const History = () => {
   useEffect(() => {
     getLembretes();
   }, []);
-
-  console.log(medicamentos);
 
   const deleteReminder = item => {
     if (item.tipo === 'medicamento') {
@@ -106,52 +101,6 @@ const History = () => {
     getLembretes();
   };
 
-  const disableReminder = item => {
-    if (item.tipo === 'medicamento') {
-      medicamentos &&
-        localStorage.setItem(
-          'lembretesMedicamento',
-          JSON.stringify(
-            medicamentos.map(objeto =>
-              objeto.id === item.id ? { ...objeto, active: false } : objeto,
-            ),
-          ),
-        );
-    } else if (item.tipo === 'consulta') {
-      consultas &&
-        localStorage.setItem(
-          'lembretesConsultas',
-          JSON.stringify(
-            consultas.map(objeto =>
-              objeto.id === item.id ? { ...objeto, active: false } : objeto,
-            ),
-          ),
-        );
-    } else if (item.tipo === 'exame') {
-      exames &&
-        localStorage.setItem(
-          'lembretesExames',
-          JSON.stringify(
-            consultas.map(objeto =>
-              objeto.id === item.id ? { ...objeto, active: false } : objeto,
-            ),
-          ),
-        );
-    } else if (item.tipo === 'agendamento') {
-      agendamentos &&
-        localStorage.setItem(
-          'lembretesAgendamentos',
-          JSON.stringify(
-            agendamentos.map(objeto =>
-              objeto.id === item.id ? { ...objeto, active: false } : objeto,
-            ),
-          ),
-        );
-    }
-    getLembretes();
-  };
-
-  console.log(lembretes);
   return (
     <main className='container w-[100vw] min-h-[100vh] h-auto pb-[80px]'>
       <Header />
@@ -212,7 +161,7 @@ const History = () => {
                         <div className='flex gap-x-[24px]'>
                           <ButtonMarine
                             message={'Excluir'}
-                            onPress={() => disableReminder(item)}
+                            onPress={() => deleteReminder(item)}
                           />
                         </div>
                       </div>
